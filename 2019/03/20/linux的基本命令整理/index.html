@@ -17,7 +17,7 @@
 <meta property="og:description" content="linux的基本命令整理日常操作命令&amp;emsp;查看当前所在目录&amp;emsp;&amp;emsp;pwd&amp;emsp;查看当前系统时间&amp;emsp;&amp;emsp;data&amp;emsp;查看哪些人登陆到服务器&amp;emsp;&amp;emsp;who(查看当前在线)&amp;emsp;&amp;emsp;last(查看最近的登录历史记录)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/linux_00.jpg">
-<meta property="og:updated_time" content="2019-03-20T14:13:20.496Z">
+<meta property="og:updated_time" content="2019-03-20T14:23:41.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux的基本命令整理">
 <meta name="twitter:description" content="linux的基本命令整理日常操作命令&amp;emsp;查看当前所在目录&amp;emsp;&amp;emsp;pwd&amp;emsp;查看当前系统时间&amp;emsp;&amp;emsp;data&amp;emsp;查看哪些人登陆到服务器&amp;emsp;&amp;emsp;who(查看当前在线)&amp;emsp;&amp;emsp;last(查看最近的登录历史记录)">
@@ -178,7 +178,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="linux的基本命令整理"><a href="#linux的基本命令整理" class="headerlink" title="linux的基本命令整理"></a><strong><center>linux的基本命令整理</center></strong></h3><p><strong>日常操作命令</strong><br>&emsp;查看当前所在目录&emsp;&emsp;pwd<br>&emsp;查看当前系统时间&emsp;&emsp;data<br>&emsp;查看哪些人登陆到服务器&emsp;&emsp;who(查看当前在线)&emsp;&emsp;last(查看最近的登录历史记录)<br><a id="more"></a><br><strong>文件系统操作</strong><br>查看根目录下的子节点(文件夹和文件)信息<br>&emsp;ls /<br>&emsp;ls -al  (-a是显示隐藏文件 -l是以更详细的列表形式显示)<br>&emsp;cd /home 切换目录<br>创建文件夹<br>&emsp;mkdir filedir 相对路径写法<br>&emsp;mkdir -p /home/app/filedir 绝对路径写法<br>删除文件夹<br>&emsp;rmdir 可以删除空目录<br>&emsp;rm -r filedir 可以把 filedir 整个文件以及其中所有的子节点全部删除<br>&emsp;rm -rf filedir 强制删除filedir(神仙操作慎用 rm -rf /* )<br>修改文件夹名称<br>&emsp;mv filedir somrfile<br>创建文件<br>&emsp;touch somefile1 创建一个空文件<br>&emsp;echo “hello_world” &gt; somefile2<br>&emsp;&emsp;利用重定向”&gt;”功能，将一条指令的输出结果写到一个文件中，会覆盖源文件内容<br>&emsp;echo “hello_world_caveman” &gt;&gt; somefile2<br>&emsp;&emsp;将一条指令的输出结果添加到指定文件中，不会覆盖源文件内容<br><strong>vim文件编辑器</strong><br>&emsp;vi somefile3<br>&emsp;&emsp;1.首先会进入”一般模式”，此模式只接受各种快捷键，不能编辑文本内容<br>&emsp;&emsp;2.按 i 就会从一般模式进入编辑模式，此模式下，敲入的都是文件内容<br>&emsp;&emsp;3.编辑完成之后，esc退出编辑模式，回到一般模式<br>&emsp;&emsp;4.按 : 进入底层命令模式,输入wq命令，回车即可</p>
-<p><div style="width: 300px; margin:auto"><img src="/img/linux_00.jpg" alt="vim操作"></div><br>快捷键<br>&emsp;a 在光标后一位开始插入<br>&emsp;A 在该行的最后插入<br>&emsp;I 在该行的最前面插入<br>&emsp;gg 直接跳到文件的首行<br>&emsp;G 直接跳到文件的末行<br>&emsp;dd 删除行，5dd则一次行删除光标后的5行<br>&emsp;yy 复制当前行，3yy则复制当前行附近的3行<br>&emsp;p 粘贴<br>&emsp;v 进入字符选择模式，选择完成后，按</p>
+<p><div style="width: 300px; margin:auto"><img src="/img/linux_00.jpg" alt="vim操作"></div><br>快捷键<br>&emsp;a 在光标后一位开始插入<br>&emsp;A 在该行的最后插入<br>&emsp;I 在该行的最前面插入<br>&emsp;gg 直接跳到文件的首行<br>&emsp;G 直接跳到文件的末行<br>&emsp;dd 删除行，5dd则一次行删除光标后的5行<br>&emsp;yy 复制当前行，3yy则复制当前行附近的3行<br>&emsp;p 粘贴<br>&emsp;v 进入字符选择模式，选择完成后，按y复制，按p粘贴</p>
 
       
 
@@ -350,11 +350,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">caveman.hui</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">caveman.hui</a>
               </li>
             
             <div class="clearfix"></div>
