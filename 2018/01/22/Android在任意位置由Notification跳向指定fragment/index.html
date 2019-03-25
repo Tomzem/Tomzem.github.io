@@ -460,12 +460,17 @@ if(true){
 
     //追加阅读量
     function addPageViewsNum(ele){
+		var IPAddress = returnCitySN["cip"];
+		var myIPAddress = "183.128.82.105";
+		if (IPAddress==myIPAddress) {
+			return;
+		}
         var url = ele.attr('id').trim();
         var Counter = AV.Object.extend("Counter");          // 查询leanclound叫做Counter的查询
         var query = new Counter;
         query.save({
             words: url,
-			ip: returnCitySN["cip"],
+			ip: IPAddress,
 			cname: returnCitySN["cname"]
         }).then(function (object) {});
     }
@@ -544,19 +549,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
             
             <div class="clearfix"></div>
