@@ -9,6 +9,7 @@
   <title>激活IDEA | Tomzem</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1、编辑C:\Windows\System32\drivers\etc下的hosts文件，加入以下配置    0.0.0.0 account.jetbrains.com2、打开 http://idea.lanyus.com/ ，获取注册码，3、在Activation Code中粘贴注册码，即可。">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="激活IDEA">
 <meta property="og:url" content="http://yoursite.com/2019/03/24/激活IDEA/index.html">
@@ -238,6 +239,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -400,6 +412,7 @@ var _hmt = _hmt || [];
 
 
 <script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script type="text/javascript"> 
 if(true){
     var leancloud_app_id  = 'ADwSK8CKv5FBR0zyoENj7L7o-gzGzoHsz';
@@ -444,7 +457,9 @@ if(true){
         var Counter = AV.Object.extend("Counter");          // 查询leanclound叫做Counter的查询
         var query = new Counter;
         query.save({
-            words: url
+            words: url,
+			ip: returnCitySN["cip"],
+			cname: returnCitySN["cname"]
         }).then(function (object) {});
     }
 
@@ -512,6 +527,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
