@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Tomzem">
 <meta property="og:description" content="2019-03-25拖了很久很久，终于走上了学习设计模式之路。之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T13:44:38.000Z">
+<meta property="og:updated_time" content="2019-03-29T14:59:05.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式基础之六大原则">
 <meta name="twitter:description" content="2019-03-25拖了很久很久，终于走上了学习设计模式之路。之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。">
@@ -200,15 +200,17 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>2019-03-25<br>拖了很久很久，终于走上了学习设计模式之路。<br>之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。<br>但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。<br><a id="more"></a>技术与创造力我们都有，但是缺少的就是为写出来的软件注入灵魂的方法。设计模式就是这一方法的主要思想，理解设计模式，巧妙的利用设计模式，可以让我们的程序变得更加健壮，更加优美，更利于去理解，去维护，从而提高系统的可靠性，稳定性，可维护性和可扩展性，这是每一个优秀程序员都应该具备的基本技能。接下来就开始从最基本的设计模式六大基本原则学起，并做笔记。</p>
-<h3 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h3><pre><code>英文名：Single responsibility principle，简称SRP
-定义：不要存在多于一个导致类变更的原因。翻译成普通话讲，就是一个类只负责一个功能领域中的相应职责。
+<h3 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h3><pre><code>英文名：Single responsibility principle,简称SRP
+定义：不要存在多于一个导致类变更的原因。翻译成普通话讲，就是一个类只负责一个功能领域中的相应职责
 </code></pre><p>一个类承担的职责越多，那么复用他的可能性就越小。如果类中的某个职责发生了变化，那么可能会影响到其他职责的运作，就相当于将这些职责耦合在了一起，所以降低耦合的方法就是将所有职责进行拆分，让一个类只负责一项职责，或者由多项职责会发生同时变化是，可以将多项职责合并到一起。总之就是，别让一个类太累。<br>      <strong>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需 要设计人员具有较强的分析设计能力和相关实践经验。</strong><br>单一职责的优点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类的复杂性降低，实现职责都有着清晰明确的职责；</span><br><span class="line">可读性增强，复杂性降低就会更利于理解；</span><br><span class="line">可维护性增强，可读性增强伴随着就更容易维护了；</span><br><span class="line">变更引起的风险降低，作为程序员都应该知道需求可是说变就变的，如果单一职责做的好，就算把天换成地，那么不会影响到其他事物的变化。</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、里氏替换原则"><a href="#二、里氏替换原则" class="headerlink" title="二、里氏替换原则"></a>二、里氏替换原则</h3><pre><code>英文名：Liskov Substitution Principle，简称LSP
+<h3 id="二、里氏替换原则"><a href="#二、里氏替换原则" class="headerlink" title="二、里氏替换原则"></a>二、里氏替换原则</h3><pre><code>英文名：Liskov Substitution Principle,简称LSP
 定义：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1代换o2时，程序P的行为没有变化，那么类型S是类型T的子类型。翻译成普通话讲，就是所有引用基类（父类）的地方必须能透明地使用其子类的对象
 </code></pre><p>通俗的来讲就是：<strong>子类可以扩展父类的功能，但不能改变父类原有的功能。</strong>它包含以下4层含义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</span><br><span class="line">子类中可以增加自己特有的方法。</span><br><span class="line">当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松。</span><br><span class="line">当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格。</span><br></pre></td></tr></table></figure></p>
 <p>只要是父类可以出现的地方，子类就可以出现，而且替换成子类不会出现任何异常报错。但是反过来，如果由子类出现的地方，如果替换成父类那就未必可行。就比如：我会设计模式，那我一定会单例模式，但是反过来，我会单例模式，我却不一定懂什么是设计模式。</p>
-<p>采用里氏替换原则的目的就是增强程序的健壮性，版本升级时也可以保持非常好的兼容性，即时增加子类，原有的子类还可以继续运行。在实际项目中，每个子类对应不同的业务含义，使用父类作为参数，传递不同的子类完成不同的业务逻辑。<br>2019-03-27<br>（发烧三天。。。。连续断更）</p>
-
+<p>采用里氏替换原则的目的就是增强程序的健壮性，版本升级时也可以保持非常好的兼容性，即时增加子类，原有的子类还可以继续运行。在实际项目中，每个子类对应不同的业务含义，使用父类作为参数，传递不同的子类完成不同的业务逻辑。<br>2019-03-27<br>（发烧三天。。。。连续断更）<br>2019-03-28<br>（下班有点晚，在考虑要不要给原则后面加上例子，方便理解。。。想了想，还是等写完了吧）<br>2019-03-29</p>
+<h3 id="三、依赖倒置原则"><a href="#三、依赖倒置原则" class="headerlink" title="三、依赖倒置原则"></a>三、依赖倒置原则</h3><pre><code>英文名：Dependence Inversion Principle,简称DIP
+定义：抽象不应该依赖于细节，细节应当依赖于抽象。换言之，要针对接口编程，而不是针对实现编程
+</code></pre>
       
 
       
@@ -337,6 +339,15 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/2019/03/29/targetSdkVersion28下Service保活/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          targetSdkVersion28下的Service保活策略
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/03/24/激活IDEA/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">激活IDEA</div>
@@ -366,7 +377,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、单一职责原则"><span class="toc-number">1.</span> <span class="toc-text">一、单一职责原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、里氏替换原则"><span class="toc-number">2.</span> <span class="toc-text">二、里氏替换原则</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、单一职责原则"><span class="toc-number">1.</span> <span class="toc-text">一、单一职责原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、里氏替换原则"><span class="toc-number">2.</span> <span class="toc-text">二、里氏替换原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、依赖倒置原则"><span class="toc-number">3.</span> <span class="toc-text">三、依赖倒置原则</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -558,15 +569,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
             
             <div class="clearfix"></div>
