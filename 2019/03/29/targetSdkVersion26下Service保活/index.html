@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>设计模式基础之六大原则 | Tomzem</title>
+  <title>targetSdkVersion26下的Service保活策略 | Tomzem</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2019-03-25拖了很久很久，终于走上了学习设计模式之路。之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。">
-<meta name="keywords" content="设计模式,学习笔记">
+  <meta name="description" content="每次在应用后台运行时，都会消耗一部分设备资源。如果用户正在使用占用大量资源的应用（例如玩游戏或观看视频），这可能会影响用户体验，效果十分明显。为了提升用户的体验，Android 8.0对应用在后台运行时可以执行的操作添加了限制。系统将区分前台应用和后台应用。处于前台时，应用可以自由创建和运行前台服务与后台服务。进入后台时，在一个持续数分钟的时间窗内，应用仍可以创建和使用服务。在该时间窗结束后，应用">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式基础之六大原则">
-<meta property="og:url" content="http://yoursite.com/2019/03/25/设计模式基础之六大原则/index.html">
+<meta property="og:title" content="targetSdkVersion26下的Service保活策略">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/targetSdkVersion26下Service保活/index.html">
 <meta property="og:site_name" content="Tomzem">
-<meta property="og:description" content="2019-03-25拖了很久很久，终于走上了学习设计模式之路。之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。">
+<meta property="og:description" content="每次在应用后台运行时，都会消耗一部分设备资源。如果用户正在使用占用大量资源的应用（例如玩游戏或观看视频），这可能会影响用户体验，效果十分明显。为了提升用户的体验，Android 8.0对应用在后台运行时可以执行的操作添加了限制。系统将区分前台应用和后台应用。处于前台时，应用可以自由创建和运行前台服务与后台服务。进入后台时，在一个持续数分钟的时间窗内，应用仍可以创建和使用服务。在该时间窗结束后，应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-29T14:59:05.115Z">
+<meta property="og:updated_time" content="2019-03-30T12:49:33.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式基础之六大原则">
-<meta name="twitter:description" content="2019-03-25拖了很久很久，终于走上了学习设计模式之路。之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。">
+<meta name="twitter:title" content="targetSdkVersion26下的Service保活策略">
+<meta name="twitter:description" content="每次在应用后台运行时，都会消耗一部分设备资源。如果用户正在使用占用大量资源的应用（例如玩游戏或观看视频），这可能会影响用户体验，效果十分明显。为了提升用户的体验，Android 8.0对应用在后台运行时可以执行的操作添加了限制。系统将区分前台应用和后台应用。处于前台时，应用可以自由创建和运行前台服务与后台服务。进入后台时，在一个持续数分钟的时间窗内，应用仍可以创建和使用服务。在该时间窗结束后，应用">
   
     <link rel="alternative" href="/atom.xml" title="Tomzem" type="application/atom+xml">
   
@@ -171,14 +171,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-设计模式基础之六大原则" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-targetSdkVersion26下Service保活" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式基础之六大原则
+      targetSdkVersion26下的Service保活策略
     </h1>
   
 
@@ -186,31 +186,39 @@ var _hmt = _hmt || [];
 <!-- span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/03/25/设计模式基础之六大原则/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2019/03/29/targetSdkVersion26下Service保活/" class="pageViews">0</span>次
   </a>
 
 <!-- 自己添加结束 -->
         
-        <a href="/2019/03/25/设计模式基础之六大原则/" class="archive-article-date">
-  	<time datetime="2019-03-25T13:38:23.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019年03月25日</time>
+        <a href="/2019/03/29/targetSdkVersion26下Service保活/" class="archive-article-date">
+  	<time datetime="2019-03-29T14:57:51.373Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019年03月29日</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2019-03-25<br>拖了很久很久，终于走上了学习设计模式之路。<br>之前的我，作为程序员小新人认为，设计模式什么的都是一些概念性的东西，我不会，还不是照样敲代码，还不是照样找到了工作。<br>但是有一天，我走进了一家大企业，看到了大佬们写的框架，写的代码，一脸懵逼。代码我也都认识，但是并不能认识到其灵魂底层的优美。<br><a id="more"></a>技术与创造力我们都有，但是缺少的就是为写出来的软件注入灵魂的方法。设计模式就是这一方法的主要思想，理解设计模式，巧妙的利用设计模式，可以让我们的程序变得更加健壮，更加优美，更利于去理解，去维护，从而提高系统的可靠性，稳定性，可维护性和可扩展性，这是每一个优秀程序员都应该具备的基本技能。接下来就开始从最基本的设计模式六大基本原则学起，并做笔记。</p>
-<h3 id="一、单一职责原则"><a href="#一、单一职责原则" class="headerlink" title="一、单一职责原则"></a>一、单一职责原则</h3><pre><code>英文名：Single responsibility principle,简称SRP
-定义：不要存在多于一个导致类变更的原因。翻译成普通话讲，就是一个类只负责一个功能领域中的相应职责
-</code></pre><p>一个类承担的职责越多，那么复用他的可能性就越小。如果类中的某个职责发生了变化，那么可能会影响到其他职责的运作，就相当于将这些职责耦合在了一起，所以降低耦合的方法就是将所有职责进行拆分，让一个类只负责一项职责，或者由多项职责会发生同时变化是，可以将多项职责合并到一起。总之就是，别让一个类太累。<br>      <strong>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需 要设计人员具有较强的分析设计能力和相关实践经验。</strong><br>单一职责的优点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类的复杂性降低，实现职责都有着清晰明确的职责；</span><br><span class="line">可读性增强，复杂性降低就会更利于理解；</span><br><span class="line">可维护性增强，可读性增强伴随着就更容易维护了；</span><br><span class="line">变更引起的风险降低，作为程序员都应该知道需求可是说变就变的，如果单一职责做的好，就算把天换成地，那么不会影响到其他事物的变化。</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、里氏替换原则"><a href="#二、里氏替换原则" class="headerlink" title="二、里氏替换原则"></a>二、里氏替换原则</h3><pre><code>英文名：Liskov Substitution Principle,简称LSP
-定义：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1代换o2时，程序P的行为没有变化，那么类型S是类型T的子类型。翻译成普通话讲，就是所有引用基类（父类）的地方必须能透明地使用其子类的对象
-</code></pre><p>通俗的来讲就是：<strong>子类可以扩展父类的功能，但不能改变父类原有的功能。</strong>它包含以下4层含义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</span><br><span class="line">子类中可以增加自己特有的方法。</span><br><span class="line">当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松。</span><br><span class="line">当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格。</span><br></pre></td></tr></table></figure></p>
-<p>只要是父类可以出现的地方，子类就可以出现，而且替换成子类不会出现任何异常报错。但是反过来，如果由子类出现的地方，如果替换成父类那就未必可行。就比如：我会设计模式，那我一定会单例模式，但是反过来，我会单例模式，我却不一定懂什么是设计模式。</p>
-<p>采用里氏替换原则的目的就是增强程序的健壮性，版本升级时也可以保持非常好的兼容性，即时增加子类，原有的子类还可以继续运行。在实际项目中，每个子类对应不同的业务含义，使用父类作为参数，传递不同的子类完成不同的业务逻辑。<br>2019-03-27<br>（发烧三天。。。。连续断更）<br>2019-03-28<br>（下班有点晚，在考虑要不要给原则后面加上例子，方便理解。。。想了想，还是等写完了吧）<br>2019-03-29</p>
-<h3 id="三、依赖倒置原则"><a href="#三、依赖倒置原则" class="headerlink" title="三、依赖倒置原则"></a>三、依赖倒置原则</h3><pre><code>英文名：Dependence Inversion Principle,简称DIP
-定义：抽象不应该依赖于细节，细节应当依赖于抽象。换言之，要针对接口编程，而不是针对实现编程
-</code></pre>
+        <p>每次在应用后台运行时，都会消耗一部分设备资源。如果用户正在使用占用大量资源的应用（例如玩游戏或观看视频），这可能会影响用户体验，效果十分明显。<br>为了提升用户的体验，Android 8.0对应用在后台运行时可以执行的操作添加了限制。系统将区分前台应用和后台应用。处于前台时，应用可以自由创建和运行前台服务与后台服务。进入后台时，在一个持续数分钟的时间窗内，应用仍可以创建和使用服务。在该时间窗结束后，应用将被视为处于空闲状态。此时，系统将停止应用的后台服务，就像应用已经调用服务的“Service.stopSelf()”方法。<a id="more"></a></p>
+<h3 id="一、前台与后台"><a href="#一、前台与后台" class="headerlink" title="一、前台与后台"></a>一、前台与后台</h3><h5 id="1-前台应用"><a href="#1-前台应用" class="headerlink" title="1.前台应用"></a>1.前台应用</h5><p>按照之前的理解，可能当前应用的界面可见，那么这就是个前台应用，其实并不是。在这里谷歌为了做服务限制，生成了一套后台应用定义，该定义与之前的内存管理中的后台定义不同。一个应用可能根据内存管理的定义会被定义为后台应用，但是根据能否启动服务的定义可能会被定义为前台定义。所以，服务限制中的前台应用应符合一下任意一条：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">具有可见 Activity（不管该 Activity 已启动还是已暂停）。</span><br><span class="line">具有前台服务。</span><br><span class="line">另一个前台应用已关联到该应用。</span><br></pre></td></tr></table></figure></p>
+<p>第一点，当应用由Activity处于暂停状态时，也算是前台应用，那么此时理论上是可以成功启动Service，所以进行下列测试：<br>在Activity执行onStop之后，延时5秒用startService去启动Service1，并在Service1中启动Service2，粘贴部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">onStop：</span><br><span class="line"> @Override</span><br><span class="line">    protected void onStop() &#123;</span><br><span class="line">        super.onStop();</span><br><span class="line">        LogUtils.i(&quot;ServiceTest:  AC-onStop&quot;);</span><br><span class="line">        Thread.sleep(5000);</span><br><span class="line">        //虽然名字为前台Service，但是此时只是一个普通service</span><br><span class="line">        startService = new Intent(mContext, ForegroundService.class);</span><br><span class="line">        startService(startService);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">03-29 23:45:09.264 I/MainActivity: </span><br><span class="line">    ServiceTest:  AC-onStop</span><br><span class="line">03-29 23:45:14.314 I/ForegroundService: </span><br><span class="line">    ServiceTest:  Service1启动成功</span><br><span class="line">03-29 23:45:14.315 I/ForegroundService: </span><br><span class="line">    ServiceTest:  启动service2</span><br><span class="line">03-29 23:45:14.359 I/Foreground2Service:</span><br><span class="line">    ServiceTest:  Service2启动成功</span><br><span class="line">03-29 23:46:09.257 I/Foreground2Service:</span><br><span class="line">    ServiceTest:  Service2死了</span><br><span class="line">03-29 23:46:09.268 I/ForegroundService: </span><br><span class="line">    ServiceTest:  Service1死了</span><br></pre></td></tr></table></figure></p>
+<p>看来，Activity在onStop之后确实被划分为前台应用,并且可以正常启动普通的Service，但是这两个普通Service会在一分钟后被系统kill,类似于被动的调用Service.stopSelf()。<br>第二点，前台服务后面在提……<br>第三点，被另一个前台应用关联，关联方式可以是绑定到一个服务，或者通过内容提供者。这类做法非常多见，有时候我们在打开一个aApp,却突然收到bApp的推送，其做法就是通过这一方式实现的，被称为“兄弟应用”。</p>
+<h5 id="2-后台应用"><a href="#2-后台应用" class="headerlink" title="2.后台应用"></a>2.后台应用</h5><p>不符合上面三点的都被列入到后台应用了，后台应用的普通Service只有大概1分钟的寿命，1分钟后会被系统强行停止。当然还有特殊情况：白名单。<br>这里的白名单又被分为两种，一种是系统白名单，例如微信，QQ等，另一种则是谷歌给的临时白名单，当处于一下情况时，系统会将后台应用放置临时白名单中并持续数分钟：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">处理一条高优先级 Firebase 云消息传递 (FCM) 消息。</span><br><span class="line">接收广播，例如短信/彩信消息。</span><br><span class="line">从通知执行 PendingIntent。</span><br></pre></td></tr></table></figure></p>
+<p>其中<a href="https://firebase.google.cn/docs/cloud-messaging/" target="_blank" rel="noopener">Firebase云信息传递</a>是一种跨平台消息传递解决方案，可供我们免费、可靠地传递消息。</p>
+<h3 id="二、系统杀死服务的判断条件"><a href="#二、系统杀死服务的判断条件" class="headerlink" title="二、系统杀死服务的判断条件"></a>二、系统杀死服务的判断条件</h3><p>系统在决定是否要终结掉一个Service时，按顺序会经历下面几个判断：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">是否后台service，如果是foreground service则不停，否则继续</span><br><span class="line">是否在临时白名单中，如果是则不停，否则继续</span><br><span class="line">是否是ephemeral apps，如果是则停，否则继续</span><br><span class="line">是否是Persistent app，如果是则不停，否则继续</span><br><span class="line">是否在允许后台运行白名单，在则不停，否则继续</span><br><span class="line">是否在省电白名单，在则不停，否则继续</span><br><span class="line">是否targetsdkversion大于等于26，是则停，否则继续</span><br><span class="line">如果targetsdkversion小于26，是否有OP_RUN_IN_BACKGROUND权限，有则不停，否则停。默认OP_RUN_IN_BACKGROUND权限是允许的。</span><br></pre></td></tr></table></figure></p>
+<p>ephemeralApp:短暂应用,看注释可以看到，ephemeral apps是完全不允许后台运行的，我们的app一定不是ephemeral apps。<br>PersistentApp:在Manifest中，我们可以为application设置android:persistent=”true”，但是前提是系统应用，所以我们第三方应用设置这个也没效果。</p>
+<h3 id="三、考虑如何存活"><a href="#三、考虑如何存活" class="headerlink" title="三、考虑如何存活"></a>三、考虑如何存活</h3><p>看了以上的过程，其中有五点是可以完全不用考虑的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ephemeralApp，完全没有后台权限，说的不是我们正常开发的APP；</span><br><span class="line">PersistentApp，前提是系统应用，说的也不是；</span><br><span class="line">后台运行白名单，。。。面子没有微信那么大；</span><br><span class="line">targetsdkversion大于等于26，无法干扰；</span><br><span class="line">targetsdkversion小于26，不可能</span><br></pre></td></tr></table></figure></p>
+<p>那么就还剩下三点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">前台服务</span><br><span class="line">临时白名单</span><br><span class="line">省电白名单</span><br></pre></td></tr></table></figure></p>
+<p>其中，省电白名单要完全看用户脸色，不是我们能反抗的，也可以不用去考虑。</p>
+<h5 id="1-前台服务方式"><a href="#1-前台服务方式" class="headerlink" title="1.前台服务方式"></a>1.前台服务方式</h5><p>前面跳过的前台服务，这里就可以补充一下：<br>前台服务也就是使用Context.startForegroundService()或者在Service中调用startForeground()将Service升级为一个前台服务。<br>这里测试使用的是第二种，在Service中调用startForeground()方法,粘贴部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NotificationCompat.Builder builder = new NotificationCompat.Builder(this);</span><br><span class="line">builder.setContentTitle(getResources().getString(R.string.app_name))</span><br><span class="line">        .setSmallIcon(R.mipmap.ic_launcher)</span><br><span class="line">        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));</span><br><span class="line">if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">    NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">    NotificationChannel channel = new NotificationChannel(&quot;3&quot;, &quot;3&quot;, NotificationManager.IMPORTANCE_MIN);</span><br><span class="line">    notificationManager.createNotificationChannel(channel);</span><br><span class="line">    builder.setChannelId(&quot;3&quot;);</span><br><span class="line">&#125;</span><br><span class="line">startForeground(1, builder.build());</span><br></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">03-30 00:49:42.863 I/ForegroundService:</span><br><span class="line">    ServiceTest:  Service1启动成功</span><br><span class="line">03-30 00:49:46.334 I/MainActivity: </span><br><span class="line">    ServiceTest:  AC-onStop</span><br><span class="line">03-30 00:50:47.889 I/ForegroundService:</span><br><span class="line">    ServiceTest:  65s过去了 Service1没死</span><br></pre></td></tr></table></figure></p>
+<p>结论，开启前台服务时，该前台服务在后台是不会被系统清理掉的，但是有个缺点就是，会在通知栏中显示一条通知信息告知用户，该应用有服务在运行，用户可以通过此通知关闭。<br><strong>如何关闭这条通知？</strong><br>突发奇想，给这个notification设置一个gone布局，布局内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">xml：</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; </span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:visibility=&quot;gone&quot;&gt;</span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br><span class="line">java：</span><br><span class="line">RemoteViews remoteViews = new RemoteViews(&quot;com.tomzem.cavealarm&quot;, R.layout.layout_notification);</span><br><span class="line">builder.setContent(remoteViews);</span><br></pre></td></tr></table></figure></p>
+<p>这里有两个重点需要注意：<br>1.保留builder.setContenTitle()等设置；<br>2.java代码放在builder.setContentTitle()之后执行；<br>3.布局必须使用ConstraintLayout；<br>三点必须满足的情况下才可以成功隐藏通知栏。<br>另外，在模拟器中出现了崩溃，但是在真机上没有出现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.app.RemoteServiceException: Bad notification posted from package ***：Couldn&apos;t expand RemoteViews for: StatusBarNotification</span><br></pre></td></tr></table></figure></p>
+<p>根据官方文档，可以得知这是因为RemoteViews在低版本中不支持使用ConstraintLayout。<br>在RemoteViews中支持以下这几种布局<br>FrameLayout LinearLayout RelativeLayout GridLayout<br>已经支持以下几种控件<br>AnalogClock Button Chronometer ImageButton ImageView<br>ProgressBar TextView ViewFlipper ListView<br>GridView StackView AdapterViewFlipper<br>按照这样的理解，那么应该在所有的Android系统上都会发生崩溃，但是为什么在高版本中不会出现问题？<br>查看日志发现，当启动前台服务时，控制台会报一个ERROR：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">E/StatusBar: couldn&apos;t inflate view for notification com.service.tomze.servicetest/0x2</span><br><span class="line">android.view.InflateException: Binary XML file line #2: Binary XML file line #2: Error inflating class android.support.constraint.ConstraintLayout</span><br><span class="line">    Caused by: android.view.InflateException: Binary XML file line #2: Error inflating class android.support.constraint.ConstraintLayout</span><br><span class="line">    Caused by: java.lang.ClassNotFoundException: Didn&apos;t find class &quot;android.support.constraint.ConstraintLayout&quot; on path: DexPathList[[]</span><br></pre></td></tr></table></figure></p>
+<p>为什么不会崩溃呢。。。。<br>那么，不崩溃他会不会影响我们开服务呢？<br>不会，并且我们开的是一个前台服务，60s内是不会阵亡的。</p>
+<h5 id="2-临时白名单方式"><a href="#2-临时白名单方式" class="headerlink" title="2.临时白名单方式"></a>2.临时白名单方式</h5><p>前文提到的，想要进入临时白名单，有三种方式，其中第一种使用FCM，国内条件简陋，不允许；第二种写的有点简单，没有看懂；第三种从通知执行 PendingIntent</p>
+
       
 
       
@@ -254,11 +262,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -270,7 +274,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -325,7 +329,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/25/设计模式基础之六大原则/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/29/targetSdkVersion26下Service保活/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -339,18 +343,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/03/29/targetSdkVersion26下Service保活/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          targetSdkVersion26下的Service保活策略
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/24/激活IDEA/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">激活IDEA</div>
+    <a href="/2019/03/25/设计模式基础之六大原则/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式基础之六大原则</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -377,7 +372,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、单一职责原则"><span class="toc-number">1.</span> <span class="toc-text">一、单一职责原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、里氏替换原则"><span class="toc-number">2.</span> <span class="toc-text">二、里氏替换原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、依赖倒置原则"><span class="toc-number">3.</span> <span class="toc-text">三、依赖倒置原则</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、前台与后台"><span class="toc-number">1.</span> <span class="toc-text">一、前台与后台</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-前台应用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.前台应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-后台应用"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.后台应用</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#二、系统杀死服务的判断条件"><span class="toc-number">2.</span> <span class="toc-text">二、系统杀死服务的判断条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、考虑如何存活"><span class="toc-number">3.</span> <span class="toc-text">三、考虑如何存活</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-前台服务方式"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.前台服务方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-临时白名单方式"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.临时白名单方式</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
